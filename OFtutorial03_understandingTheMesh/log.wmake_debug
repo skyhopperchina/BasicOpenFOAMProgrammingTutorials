@@ -1,0 +1,31 @@
+Making dependency list for source file test_MI_class.cpp
+wmkdepend: parse error while scanning 'test_MI_class.cpp' ... perhaps missing a final newline
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2206 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O0 -fdefault-inline -ggdb3 -DFULLDEBUG -DNoRepository -ftemplate-depth-100  -g -I/usr/lib/openfoam/openfoam2206/src/finiteVolume/lnInclude -I/usr/lib/openfoam/openfoam2206/src/meshTools/lnInclude -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2206/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2206/src/OSspecific/POSIX/lnInclude   -fPIC -c test_MI_class.cpp -o Make/linux64GccDPInt32Opt/test_MI_class.o
+test_MI_class.cpp: In constructor ‘MI_class::MI_class(int)’:
+test_MI_class.cpp:29:31: error: no matching function for call to ‘out::out()’
+   29 |         MI_class(int c): m_c(c) {}
+      |                               ^
+test_MI_class.cpp:8:5: note: candidate: ‘out::out(int)’
+    8 |     out(int a): m_a(a){}
+      |     ^~~
+test_MI_class.cpp:8:5: note:   candidate expects 1 argument, 0 provided
+test_MI_class.cpp:4:7: note: candidate: ‘constexpr out::out(const out&)’
+    4 | class out {
+      |       ^~~
+test_MI_class.cpp:4:7: note:   candidate expects 1 argument, 0 provided
+test_MI_class.cpp:4:7: note: candidate: ‘constexpr out::out(out&&)’
+test_MI_class.cpp:4:7: note:   candidate expects 1 argument, 0 provided
+test_MI_class.cpp:29:31: error: no matching function for call to ‘in::in()’
+   29 |         MI_class(int c): m_c(c) {}
+      |                               ^
+test_MI_class.cpp:16:5: note: candidate: ‘in::in(int)’
+   16 |     in(int b): m_b(b){}
+      |     ^~
+test_MI_class.cpp:16:5: note:   candidate expects 1 argument, 0 provided
+test_MI_class.cpp:12:7: note: candidate: ‘constexpr in::in(const in&)’
+   12 | class in {
+      |       ^~
+test_MI_class.cpp:12:7: note:   candidate expects 1 argument, 0 provided
+test_MI_class.cpp:12:7: note: candidate: ‘constexpr in::in(in&&)’
+test_MI_class.cpp:12:7: note:   candidate expects 1 argument, 0 provided
+make: *** [/usr/lib/openfoam/openfoam2206/wmake/rules/General/transform:35: Make/linux64GccDPInt32Opt/test_MI_class.o] Error 1

@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "OFtutorial3.C": "cpp",
+        "autoPtr.H": "cpp",
+        "fvMeshLduAddressing.H": "cpp",
+        "ostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
