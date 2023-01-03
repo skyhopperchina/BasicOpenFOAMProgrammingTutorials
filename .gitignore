@@ -86,3 +86,9 @@ doc/Doxygen/DTAGS
 # Ignore the test directory and unpublished files
 /tutorialsTest
 /TODO
+
+# Ignore vscode setting
+.vscode/
+Make/
+log.wmake
+log.wmake_debug
