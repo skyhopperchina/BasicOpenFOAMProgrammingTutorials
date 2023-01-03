@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     // ############################################
     // test code
     Info<< "\ntest code start!\n############################################\n";
-    Info << mesh.polyMesh;
+    Info <<"";
     Info <<"\n############################################\ntest code end! \n\n"<<endl;
 
 
