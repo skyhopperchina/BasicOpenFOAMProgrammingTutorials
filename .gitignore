@@ -89,6 +89,6 @@ doc/Doxygen/DTAGS
 
 # Ignore vscode setting
 .vscode/
-Make/
+#Make/
 log.wmake
 log.wmake_debug
