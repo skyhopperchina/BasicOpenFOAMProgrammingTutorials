@@ -23,14 +23,14 @@ public:
 int out::m_a = 7;
 
 int main() {
-    out ini;
-    ini.showmember();
-    // ini.m_a=7;
+    // out ini;
     // ini.showmember();
-    out::in instance1;
-    // instance1.=4;
-    instance1.showA();
-    // out::in i;
-    // i.showA();
+    // // ini.m_a=7;
+    // // ini.showmember();
+    // out::in instance1;
+    // // instance1.=4;
+    // instance1.showA();
+    // // out::in i;
+    // // i.showA();
     return 0;
 }

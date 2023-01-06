@@ -1,5 +1,7 @@
 #OFtutorial3.C
 #test_nested_class.cpp
-test_MI_class.cpp
+#test_MI_class.cpp
+test_polymesh.cpp
+
 
 EXE = $(FOAM_USER_APPBIN)/ofTutorial3
