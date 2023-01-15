@@ -38,11 +38,18 @@ int main(int argc, char *argv[])
             
     meshPtr().init(true); // initialise all (lower levels and current)
 
-    Foam::Info << "meshPtr()="<<meshPtr()<<Foam::endl;
+    Foam::Info << "regionName="<<regionName<<Foam::endl;
+    Foam::Info << "runTime.timeName()="<<runTime.timeName()<<Foam::endl;
 
-    Foam::Info << "meshPtr().C().size()=？"<<meshPtr().C().size()<<Foam::endl;
+    
+
+    Foam::Info << "meshPtr().C().size()="<<meshPtr().C().size()<<Foam::endl;
 
     Foam::fvMesh &mesh = meshPtr(); //mesh是指向meshPtr的引用
+
+    Foam::Info << "meshSubDir="<<mesh.meshSubDir<<Foam::endl;
+    Foam::Info << "defaultRegion="<<mesh.defaultRegion<<Foam::endl;
+    Foam::pointZoneMesh& point=mesh.pointZones();
 
     // meshPtr.release();
 
