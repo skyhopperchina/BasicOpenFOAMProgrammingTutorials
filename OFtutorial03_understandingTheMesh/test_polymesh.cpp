@@ -11,8 +11,9 @@
 
 int main(int argc, char *argv[])
 {
-    #include "setRootCase.H"   //初始化运行环境
-    #include "createTime.H"
+    // #include "setRootCase.H"   //初始化运行环境
+    Foam::argList args(argc, argv);
+#include "createTime.H"
 
     // #include "createMesh.H"
     Foam::autoPtr<Foam::fvMesh> meshPtr;
@@ -35,12 +36,13 @@ int main(int argc, char *argv[])
                 runTime,
                 Foam::IOobject::MUST_READ),
             false));
+        //fvMesh在构造过程中已经载入了网格数据
             
     meshPtr().init(true); // initialise all (lower levels and current)
 
-    Foam::Info << "meshPtr()="<<meshPtr()<<Foam::endl;
+    // Foam::Info << "meshPtr()="<<meshPtr()<<Foam::endl;
 
-    Foam::Info << "meshPtr().C().size()=？"<<meshPtr().C().size()<<Foam::endl;
+    Foam::Info << "meshPtr().C().size()=?"<<meshPtr().C().size()<<Foam::endl;
 
     Foam::fvMesh &mesh = meshPtr(); //mesh是指向meshPtr的引用
 

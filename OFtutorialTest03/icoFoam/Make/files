@@ -1,0 +1,4 @@
+icoFoam.C
+
+#EXE = $(FOAM_APPBIN)/icoFoam
+EXE = $(FOAM_USER_APPBIN)/icoFoam
