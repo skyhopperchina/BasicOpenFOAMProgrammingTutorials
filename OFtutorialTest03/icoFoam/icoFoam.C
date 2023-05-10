@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
         while (piso.correct())
         {
             volScalarField rAU(1.0/UEqn.A());
-            Info <<"UEqn.A()=\n" <<UEqn.A() << endl;
+            // Info <<"UEqn.A()=\n" <<UEqn.A() << endl;
             volVectorField HbyA(constrainHbyA(rAU * UEqn.H(), U, p));
             surfaceScalarField phiHbyA
             (
