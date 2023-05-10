@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
         // The LHS can be defined using the laplacian operator in OpenFOAM as:
         fvScalarMatrix pEqn
         (
-            fvm::laplacian(A_inv_flux, p) == fvc::div(HbyA)
+            fvm::laplacian(A_inv_flux, p) - fvc::div(HbyA)
         );
 
         // Setting reference pressure for the equation.
@@ -159,7 +159,7 @@ int main(int argc, char *argv[])
     // printing execution time information at the end of simulation
     Info<< nl;
     Info<< "ExecutionTime = " << runTime.elapsedCpuTime() << " s" << endl;
-    Info<< "End\n" << endl;
+    Info<< "End20230415_1\n" << endl;
 
     return 0;
 }

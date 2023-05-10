@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
     forAll(mesh.boundary(),patchI)
     {
         const polyPatch& pp = mesh.boundaryMesh()[patchI];
-        if (isA<processorPolyPatch>(pp))
+        if (isA<polyPatch>(pp))
             Pout << "Patch " << patchI << " named " << mesh.boundary()[patchI].name()
                  << " is definitely a processor boundary!" << endl;
     }
