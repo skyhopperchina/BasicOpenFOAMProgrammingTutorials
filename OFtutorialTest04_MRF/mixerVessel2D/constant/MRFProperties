@@ -27,5 +27,18 @@ MRF1
     omega     constant 1047.2;
 }
 
+MRF2
+{
+    cellZone    stator;
+    active      yes;
+
+    // Fixed patches (by default they 'move' with the MRF zone)
+    nonRotatingPatches (stator);
+
+    origin    (0 0 0);
+    axis      (0 0 1);
+    omega     constant -200;
+}
+
 
 // ************************************************************************* //
