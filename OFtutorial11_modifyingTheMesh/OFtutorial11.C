@@ -46,10 +46,10 @@ int main(int argc, char *argv[])
 
     // ---
     // create cell types
-    const cellModel& hex = *(cellModeller::lookup("hex"));
-    const cellModel& prism = *(cellModeller::lookup("prism"));
-    const cellModel& pyr = *(cellModeller::lookup("pyr"));
-    const cellModel& tet = *(cellModeller::lookup("tet"));
+    const cellModel& hex = *(cellModel::ptr("hex"));
+    const cellModel& prism = *(cellModel::ptr("prism"));
+    const cellModel& pyr = *(cellModel::ptr("pyr"));
+    const cellModel& tet = *(cellModel::ptr("tet"));
     Info << "Created cell types" << endl;
 
     // create a point cloud between which the cells will stretch
@@ -232,7 +232,7 @@ int main(int argc, char *argv[])
             runTime.constant(),
             runTime
         ),
-        clone(points),
+        points,
         cells,
         patchFaces,
         boundaryPatchNames,

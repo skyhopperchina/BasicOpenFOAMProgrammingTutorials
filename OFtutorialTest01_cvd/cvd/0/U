@@ -1,0 +1,58 @@
+/*--------------------------------*- Python -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://xxxxxxx
+    \\  /    A nd           | Version:  xx
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+   format     ascii;
+   class       volVectorField;
+   location        "0";
+   object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions     [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+   INLET
+    {
+        type            fixedValue;
+        value           uniform (-1 0 0);
+    }
+   OUTLET
+    {
+        type            zeroGradient;
+    }
+   WALL1
+    {
+        type            noSlip;
+    }
+   WALL2
+    {
+        type            noSlip;
+    }
+   SYS1
+    {
+        type            empty;
+    }
+   SYS2
+    {
+        type            empty;
+    }
+   SYS3
+    {
+        type            empty;
+    }
+   BOTTOM
+    {
+        type            noSlip;
+    }
+}
+
+// ************************************************************************* //

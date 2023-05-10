@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
     #include "setRootCase.H"
     #include "createTime.H"
     #include "createMesh.H"
+
+    Info<<"Mesh.C()"<<mesh.points()<<endl;
     
     // Create the scalar field and read BCs and the initial conditions
     // NOTE: beta is thus already subjects to the BCs specified in 0/beta
