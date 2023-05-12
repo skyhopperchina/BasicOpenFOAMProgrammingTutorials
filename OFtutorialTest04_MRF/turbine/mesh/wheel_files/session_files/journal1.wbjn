@@ -1,0 +1,3992 @@
+# encoding: utf-8
+# 2020 R2
+SetScriptVersion(Version="20.2.221")
+template1 = GetTemplate(TemplateName="BladeGen")
+system1 = template1.CreateSystem()
+Save(Overwrite=True)
+bladeDesign1 = system1.GetContainer(ComponentName="Blade Design")
+bladeDesign1.Edit()
+bladeDesign1.Edit()
+bladeDesign1.Exit()
+Save(Overwrite=True)
+template2 = GetTemplate(TemplateName="TurboGrid")
+bladeDesignComponent1 = system1.GetComponent(Name="Blade Design")
+componentTemplate1 = GetComponentTemplate(Name="TSMeshTemplate")
+system2 = template2.CreateSystem(
+    DataTransferFrom=[Set(FromComponent=bladeDesignComponent1, TransferName=None, ToComponentTemplate=componentTemplate1)],
+    RelativeTo=system1)
+turboMeshComponent1 = system2.GetComponent(Name="Turbo Mesh")
+turboMeshComponent1.Update(AllDependencies=True)
+turboMesh1 = system2.GetContainer(ComponentName="Turbo Mesh")
+turboMesh1.Edit()
+turboMesh1.Exit()
+bladeDesign1.Edit()
+bladeDesign1.Exit()
+Save(Overwrite=True)
+turboMesh1.Edit()
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.25339
+    Pan = 0, 0
+    Rotation Quaternion = 0.042703, 0.112178, -0.661187, -0.740558
+    
+  END
+
+END
+
+> update
+GEOMETRY:
+  SEGMENT HIGHLIGHT:
+    Requested Block = 
+    Requested Index = 0
+  END
+END""")
+turboMesh1.SendCommand(Command="""GEOMETRY:
+  SEGMENT HIGHLIGHT:
+    Requested Block = 
+    Requested Index = 0
+  END
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.162691, 0.223818, -0.690832, -0.667983
+    
+  END
+
+END
+
+> update
+MESH DISPLAY:
+  SURFACE GROUP:BLADE LE
+    Visibility = On
+  END
+END""")
+turboMesh1.SendCommand(Command="""MESH DISPLAY:
+  SURFACE GROUP:HIGHBLADE GEO HIGH
+    Visibility = On
+  END
+END""")
+turboMesh1.SendCommand(Command="""MESH DISPLAY:
+  SURFACE GROUP:HIGHPERIODIC
+    Visibility = On
+  END
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.190609, 0.13505, -0.714257, -0.659757
+    
+  END
+
+END
+
+> update
+MESH DISPLAY:
+  SURFACE GROUP:HIGHPERIODIC
+    Visibility = Off
+  END
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.290401, 0.187943, -0.66656, -0.660345
+    
+  END
+
+END
+
+> update
+MESH DISPLAY:
+  SURFACE GROUP:LOWBLADE GEO HIGH
+    Visibility = On
+  END
+END""")
+turboMesh1.SendCommand(Command="""MESH DISPLAY:
+  SURFACE GROUP:LOWBLADE GEO LOW
+    Visibility = On
+  END
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.146013, 0.134324, -0.665331, -0.719715
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 1.57411
+  Between Boundary Layers Number Of Const Elements = 1
+  Between Boundary Layers Number Of Elements = 7
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 1.0
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.57411
+  Hub Boundary Layer Number Of Elements = 7
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.00500877 [cm]
+  Hub Vertex Offset = 0.00358931
+  Hub Vertex YPlus = 45.2214
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Topology Block Edge Split
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 4
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 20
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.47532
+  Shroud Boundary Layer Number Of Elements = 7
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.00500877 [cm]
+  Shroud Vertex Offset = 0.00358931
+  Shroud Vertex YPlus = 45.2214
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Coarse
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00477418 [cm]
+    Target First Element YPlus = 43.1034
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.0291592, 0.222811, -0.578244, -0.784321
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 2.29413
+  Between Boundary Layers Number Of Const Elements = 7
+  Between Boundary Layers Number Of Elements = 31
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 1.0
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.09665
+  Hub Boundary Layer Number Of Elements = 15
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.00500878 [cm]
+  Hub Vertex Offset = 0.00358932
+  Hub Vertex YPlus = 45.2215
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Target Total Node Count
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 12
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 60
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.08993
+  Shroud Boundary Layer Number Of Elements = 15
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.00500878 [cm]
+  Shroud Vertex Offset = 0.00358932
+  Shroud Vertex YPlus = 45.2215
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Coarse
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00477418 [cm]
+    Target First Element YPlus = 43.1034
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.308186, 0.204382, -0.67332, -0.640244
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 1.74299
+  Between Boundary Layers Number Of Const Elements = 2
+  Between Boundary Layers Number Of Elements = 11
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 0.5
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.32022
+  Hub Boundary Layer Number Of Elements = 8
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.00731575 [cm]
+  Hub Vertex Offset = 0.0052425
+  Hub Vertex YPlus = 66.0498
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Target Total Node Count
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 6
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 26
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.27516
+  Shroud Boundary Layer Number Of Elements = 8
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.00731575 [cm]
+  Shroud Vertex Offset = 0.0052425
+  Shroud Vertex YPlus = 66.0498
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Coarse
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00688988 [cm]
+    Target First Element YPlus = 62.2048
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.31638
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.0951674, 0.213691, -0.546853, -0.8039
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 1.74299
+  Between Boundary Layers Number Of Const Elements = 2
+  Between Boundary Layers Number Of Elements = 11
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 0.5
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.32022
+  Hub Boundary Layer Number Of Elements = 8
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.00731575 [cm]
+  Hub Vertex Offset = 0.0052425
+  Hub Vertex YPlus = 66.0498
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Target Total Node Count
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 6
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 26
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.27516
+  Shroud Boundary Layer Number Of Elements = 8
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.00731575 [cm]
+  Shroud Vertex Offset = 0.0052425
+  Shroud Vertex YPlus = 66.0498
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Medium
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00688988 [cm]
+    Target First Element YPlus = 62.2048
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.235386
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.108875, 0.305877, -0.640115, -0.696325
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 2.18633
+  Between Boundary Layers Number Of Const Elements = 5
+  Between Boundary Layers Number Of Elements = 22
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 0.78
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.13925
+  Hub Boundary Layer Number Of Elements = 12
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.0060727 [cm]
+  Hub Vertex Offset = 0.00435173
+  Hub Vertex YPlus = 54.827
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Target Total Node Count
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 9
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 45
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.12694
+  Shroud Boundary Layer Number Of Elements = 12
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.0060727 [cm]
+  Shroud Vertex Offset = 0.00435173
+  Shroud Vertex YPlus = 54.827
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Specify
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00584594 [cm]
+    Target First Element YPlus = 52.7797
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.235386
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.350301, 0.379103, -0.633278, -0.576695
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 2.00596
+  Between Boundary Layers Number Of Const Elements = 3
+  Between Boundary Layers Number Of Elements = 15
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 0.611111
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.26117
+  Hub Boundary Layer Number Of Elements = 11
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.00352762 [cm]
+  Hub Vertex Offset = 0.00252791
+  Hub Vertex YPlus = 31.8489
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Target Total Node Count
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 8
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 36
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.23485
+  Shroud Boundary Layer Number Of Elements = 11
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.00352762 [cm]
+  Shroud Vertex Offset = 0.00252791
+  Shroud Vertex YPlus = 31.8489
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Coarse
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00332259 [cm]
+    Target First Element YPlus = 29.9978
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.235386
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = 0.274472, 0.0520107, -0.598975, -0.750491
+    
+  END
+
+END
+
+> update
+MESH DATA:
+  ATM Five Star Vertex Mesh Size Factor = 1.0
+  ATM Proportional BL Factor Base = 3.0
+  ATM Proportional BL Factor Ratio = 0.0
+  ATM Spanwise To B2B Count Factor = 2
+  Between Boundary Layers Distribution Option = End Ratio
+  Between Boundary Layers End Ratio = 1.74299
+  Between Boundary Layers Number Of Const Elements = 2
+  Between Boundary Layers Number Of Elements = 11
+  Boundary Layer Specification Method = Proportional
+  Global Size Factor = 0.5
+  HGrid At Inlet = on
+  HGrid At Outlet = on
+  HGrid in Parametric Space at Inlet = Off
+  HGrid in Parametric Space at Outlet = Off
+  Hub Boundary Layer Distribution Option = Element Count and Size
+  Hub Boundary Layer Expansion Rate = 1.32022
+  Hub Boundary Layer Number Of Elements = 8
+  Hub Boundary Layer Offset = 0.1
+  Hub End Ratio = 200
+  Hub Tip Distribution Option = End Ratio
+  Hub Tip End Ratio = 15
+  Hub Tip Vertex Distance = 0.01 [m]
+  Hub Tip Vertex Offset = 0.1
+  Hub Tip Vertex YPlus = 1
+  Hub Vertex Distance = 0.00731575 [cm]
+  Hub Vertex Offset = 0.0052425
+  Hub Vertex YPlus = 66.0498
+  Inlet Default Growth Ratio = 1.2
+  Inlet Defining Parameter Type = Target Expansion Rate
+  Inlet Domain = Off
+  Inlet Max Aspect Ratio = 900
+  Inlet Multi Segment Enabled = On
+  Inlet Multi Segment First Element Factor = 0.1
+  LE Cutoff Edge Split Factor = 1.0
+  Meridional Splitter Boundary Layer Factor = 1.0
+  Mesh Size Specification Mode = Target Total Node Count
+  Number Of Constant Hub Tip Elements = 0
+  Number Of Constant Shroud Tip Elements = 0
+  Number Of Constant Spanwise Blade Elements = 6
+  Number Of Elements Per Block Edge = 2
+  Number Of Hub Tip Elements = 4
+  Number Of Inlet Elements = 5
+  Number Of Outlet Elements = 5
+  Number Of Shroud Tip Elements = 4
+  Number Of Spanwise Blade Elements = 26
+  Outlet Default Growth Ratio = 1.2
+  Outlet Defining Parameter Type = Target Expansion Rate
+  Outlet Domain = Off
+  Outlet Max Aspect Ratio = 900
+  Outlet Multi Segment Enabled = On
+  Outlet Multi Segment First Element Factor = 0.1
+  Override Inlet Distribution = Off
+  Override Outlet Distribution = Off
+  Reynolds Number = 1.0e6
+  Shroud Boundary Layer Distribution Option = Element Count and Size
+  Shroud Boundary Layer Expansion Rate = 1.27516
+  Shroud Boundary Layer Number Of Elements = 8
+  Shroud Boundary Layer Offset = 0.1
+  Shroud Tip Distribution Option = End Ratio
+  Shroud Tip End Ratio = 15
+  Shroud Tip Vertex Distance = 0.01 [m]
+  Shroud Tip Vertex Offset = 0.1
+  Shroud Tip Vertex YPlus = 1
+  Shroud Vertex Distance = 0.00731575 [cm]
+  Shroud Vertex Offset = 0.0052425
+  Shroud Vertex YPlus = 66.0498
+  Spanwise Blade Distribution Option = End Ratio
+  TE Cutoff Edge Split Factor = 1.0
+  Target Maximum Expansion Rate = 1.3
+  Target Maximum Expansion Rate Enabled = On
+  Target Mesh Granularity = Specify
+  Target Mesh Node Count = 50000
+  Vertex Offset Specification Mode = Absolute
+  BLADE MESH DATA: Blade 1
+    ATM Hub Tip Maximum Expansion Rate = 1.3
+    ATM Hub Tip Maximum Expansion Rate Enabled = Off
+    ATM Shroud Tip Maximum Expansion Rate = 1.3
+    ATM Shroud Tip Maximum Expansion Rate Enabled = Off
+    Cutoff Blade Edge Expansion Factor = 0.5
+    GGI Tip Hub Le Cut Off MeanLine Method = Auto
+    GGI Tip Hub Te Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Le Cut Off MeanLine Method = Auto
+    GGI Tip Shroud Te Cut Off MeanLine Method = Auto
+    Number Of Elements Across Hub Tip = 0
+    Number Of Elements Across Shroud Tip = 0
+    Number Of Leading Edge Hub Tip Elements = 2
+    Number Of Leading Edge Shroud Tip Elements = 2
+    Number Of Trailing Edge Hub Tip Elements = 2
+    Number Of Trailing Edge Shroud Tip Elements = 2
+    Override Hub Tip Element Count Calculation = Off
+    Override Shroud Tip Element Count Calculation = Off
+  END
+  EDGE SPLIT CONTROL: Blade 1 Boundary Layer Control
+    Split Factor = 3
+    Target First Element Offset = 0.00688988 [cm]
+    Target First Element YPlus = 62.2048
+  END
+END
+MESH DATA:
+  Override Outlet Element Count Calculation = 0
+  Outlet Default Growth Ratio = 1.2
+  Outlet Multi Segment Enabled = On
+END
+MESH DATA:
+  Override Inlet Element Count Calculation = 0
+  Inlet Default Growth Ratio = 1.2
+  Inlet Multi Segment Enabled = On
+END
+TOPOLOGY SET:
+  Lock Down ATM Mesh Size = Off
+END
+PARAMETERIZATION:
+END""")
+turboMesh1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.7762, 0.249575, 2.10794
+    Scale = 0.235386
+    Pan = -0.881432, 0.28744
+    Rotation Quaternion = -0.100113, 0.145602, -0.730416, -0.659791
+    
+  END
+
+END
+
+> update
+GEOMETRY:
+  SEGMENT HIGHLIGHT:
+    Requested Block = 
+    Requested Index = 0
+  END
+END""")
+turboMesh1.SendCommand(Command="""GEOMETRY:
+  SEGMENT HIGHLIGHT:
+    Requested Block = 
+    Requested Index = 0
+  END
+END""")
+turboMesh1.SendCommand(Command="> setlayerhighlight object=/MESH DATA/EDGE SPLIT CONTROL:Blade 1 Boundary Layer Control")
+turboMesh1.SendCommand(Command="> setlayerhighlight object=/MESH DATA/EDGE SPLIT CONTROL:Blade 1 Boundary Layer Control")
+Save(Overwrite=True)
+turboMesh1.SendCommand(Command="> setlayerhighlight object=/MESH DATA/EDGE SPLIT CONTROL:Blade 1 Boundary Layer Control")
+turboMesh1.SendCommand(Command="> setlayerhighlight object=/MESH DATA/EDGE SPLIT CONTROL:Blade 1 Boundary Layer Control")
+turboMesh1.SendCommand(Command="> setlayerhighlight object=/MESH DATA/EDGE SPLIT CONTROL:Blade 1 Boundary Layer Control")
+turboMesh1.Exit()
+template3 = GetTemplate(TemplateName="FLUENT")
+componentTemplate2 = GetComponentTemplate(Name="FluentSetupCellTemplate")
+system3 = template3.CreateSystem(
+    DataTransferFrom=[Set(FromComponent=turboMeshComponent1, TransferName=None, ToComponentTemplate=componentTemplate2)],
+    RelativeTo=system2)
+setupComponent1 = system3.GetComponent(Name="Setup")
+setupComponent1.Update(AllDependencies=True)
+setup1 = system3.GetContainer(ComponentName="Setup")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)/file/set-tui-version "20.2"')
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}, RunParallel=True, NumberOfProcessors=6))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)/file/set-tui-version "20.2"')
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)/file/set-tui-version "20.2"')
+setupComponent1.Reset()
+setupComponent1.Refresh()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(DisplayText="Fluent Launcher Settings", EnvPath={}, RunParallel=True))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)/file/set-tui-version "20.2"')
+system3.Delete()
+template4 = GetTemplate(TemplateName="CFX")
+componentTemplate3 = GetComponentTemplate(Name="CFXPhysicsTemplate")
+system4 = template4.CreateSystem(
+    DataTransferFrom=[Set(FromComponent=turboMeshComponent1, TransferName=None, ToComponentTemplate=componentTemplate3)],
+    RelativeTo=system2)
+setupComponent2 = system4.GetComponent(Name="Setup")
+setupComponent2.Update(AllDependencies=True)
+setup2 = system4.GetContainer(ComponentName="Setup")
+setup2.Edit()
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+> update
+ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 3600 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""AXIS: TurboPre
+  Option = Coord Frame
+  Visibility = true
+  Reference Coord Frame = Coord 0
+  Axis of Rotation = Z
+END""")
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = -0.16325, -0.407985, 0.464139, 0.769075
+    
+  END
+
+END
+
+> update
+ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""ROTATION MARKER: Marker R1
+  Visibility = true
+  Location = SHROUD
+  Rotation Speed = 80000 [rev min^-1]
+  AXIS DEFINITION:
+    Option = Coordinate Axis
+    Rotation Axis = Coord 0.3
+  END
+END""")
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = -0.119918, -0.419627, 0.570676, 0.695614
+    
+  END
+
+END
+
+> update
+>delete /FLOW:Flow Analysis 1/DOMAIN:Default Domain,/FLOW:Flow Analysis 1/ANALYSIS TYPE,/FLOW:Flow Analysis 1/OUTPUT CONTROL/MONITOR OBJECTS/EFFICIENCY OUTPUT,/FLOW:Flow Analysis 1/OUTPUT CONTROL/EFFICIENCY OUTPUT,/TURBO POST DATA,/FLOW:Flow Analysis 1/TRANSIENT BLADE ROW MODELS,/FLOW:Flow Analysis 1/OUTPUT CONTROL/TRANSIENT BLADE ROW OUTPUT
+FLOW: Flow Analysis 1
+  &replace OUTPUT CONTROL:
+    RESULTS:
+      File Compression Level = Default
+      Option = Standard
+    END
+    MONITOR OBJECTS:
+      EFFICIENCY OUTPUT:
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END
+      MONITOR BALANCES:
+        Option = Full
+      END
+      MONITOR FORCES:
+        Option = Full
+      END
+      MONITOR PARTICLES:
+        Option = Full
+      END
+      MONITOR RESIDUALS:
+        Option = Full
+      END
+      MONITOR TOTALS:
+        Option = Full
+      END
+    END
+  END
+  &replace SOLUTION UNITS:
+    Angle Units = [rad]
+    Length Units = [m]
+    Mass Units = [kg]
+    Solid Angle Units = [sr]
+    Temperature Units = [K]
+    Time Units = [s]
+  END
+  &replace SOLVER CONTROL:
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME:
+      Option = High Resolution
+    END
+    CONVERGENCE CONTROL:
+      Length Scale Option = Conservative
+      Maximum Number of Iterations = 100
+      Minimum Number of Iterations = 1
+      Timescale Control = Auto Timescale
+      Timescale Factor = 1.0
+    END
+    CONVERGENCE CRITERIA:
+      Residual Target = 1.E-4
+      Residual Type = RMS
+    END
+    DYNAMIC MODEL CONTROL:
+      Global Dynamic Model Control = On
+    END
+    INTERRUPT CONTROL:
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS:
+        Option = Default Conditions
+      END
+    END
+  END
+  &replace ANALYSIS TYPE:
+    Option = Steady State
+    EXTERNAL SOLVER COUPLING:
+      Option = None
+    END
+  END
+  &replace DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    DOMAIN MODELS:
+      BUOYANCY MODEL:
+        Option = Non Buoyant
+      END
+      DOMAIN MOTION:
+        Alternate Rotation Model = true
+        Angular Velocity = 80000 [rev min^-1]
+        Option = Rotating
+        AXIS DEFINITION:
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.3
+        END
+      END
+      MESH DEFORMATION:
+        Option = None
+      END
+      REFERENCE PRESSURE:
+        Reference Pressure = 0 [atm]
+      END
+    END
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY:
+        Option = Continuous Fluid
+      END
+    END
+    FLUID MODELS:
+      COMBUSTION MODEL:
+        Option = None
+      END
+      HEAT TRANSFER MODEL:
+        Include Viscous Work Term = True
+        Option = Total Energy
+      END
+      THERMAL RADIATION MODEL:
+        Option = None
+      END
+      TURBULENCE MODEL:
+        Option = SST
+      END
+      TURBULENT WALL FUNCTIONS:
+        High Speed Model = Off
+        Option = Automatic
+      END
+    END
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = BLADE
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = HUB
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS:
+        FLOW DIRECTION:
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 1
+          Unit Vector r Component = 1
+        END
+        FLOW REGIME:
+          Option = Subsonic
+        END
+        HEAT TRANSFER:
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = 600 [C]
+        END
+        MASS AND MOMENTUM:
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = 2 [bar]
+        END
+        TURBULENCE:
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END
+      END
+    END
+    BOUNDARY: R1 Outlet
+      Boundary Type = OUTLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS:
+        FLOW REGIME:
+          Option = Subsonic
+        END
+        MASS AND MOMENTUM:
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 1 [bar]
+        END
+        PRESSURE AVERAGING:
+          Option = Average Over Whole Outlet
+        END
+      END
+    END
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = SHROUD
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+          WALL VELOCITY:
+            Option = Counter Rotating Wall
+          END
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+  END
+  &replace DOMAIN INTERFACE: R1 to R1 Periodic 1
+    Filter Domain List1 = R1
+    Filter Domain List2 = R1
+    Interface Region List1 = PER1
+    Interface Region List2 = PER2
+    Interface Type = Fluid Fluid
+    INTERFACE MODELS:
+      Option = Rotational Periodicity
+      AXIS DEFINITION:
+        Option = Coordinate Axis
+        Rotation Axis = Coord 0.3
+      END
+    END
+    MESH CONNECTION:
+      Option = Automatic
+    END
+  END
+END
+
+>physicsupdate
+TURBO POST DATA:
+  Machine Type = Radial Turbine
+  Component Order = R1
+  Flow Type = Compressible
+  Reference Pressure = 0 [atm]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 1 [m]
+  TURBO POST COMPONENT: R1
+    Domain Name = R1
+    Domain Motion = Rotating
+    Number of Components in 360 = 11
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    Complete Component = False
+    Blade Region = BLADE
+    Hub Region = HUB
+    Inlet Region = INFLOW
+    Outlet Region = OUTFLOW
+    Shroud Region = SHROUD
+    Periodic 1 Region = PER1
+    Periodic 2 Region = PER2
+  END
+END""")
+setup2.SendCommand(Command=">delete /AXIS:TurboPre")
+setup2.SendCommand(Command=">delete /ROTATION MARKER:Marker R1")
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = -0.0285751, -0.473122, 0.529984, 0.703195
+    
+  END
+
+END
+
+> update
+LIBRARY:
+CEL:
+EXPRESSIONS:
+BCPtin=2[bar]
+END
+END
+END""")
+setup2.SendCommand(Command="""PARAMETERIZATION:
+  INPUT FIELD: BCPtin
+    Method = Expression
+    Expression Name = BCPtin
+  END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+BCu5=420 [m/s]
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+BCT3t=600[C]
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+BCP4=1 [bar]
+END
+END
+END""")
+setup2.SendCommand(Command="""PARAMETERIZATION:
+  INPUT FIELD: BCP4
+    Method = Expression
+    Expression Name = BCP4
+  END
+END""")
+setup2.SendCommand(Command="""PARAMETERIZATION:
+  INPUT FIELD: BCu5
+    Method = Expression
+    Expression Name = BCu5
+  END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+D5=91 [mm]
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+omega=BCu5/D5*2
+END
+END
+END""")
+setup2.SendCommand(Command="""PARAMETERIZATION:
+  INPUT FIELD: BCT3t
+    Method = Expression
+    Expression Name = BCT3t
+  END
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: R1
+&replace     BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 1
+          Unit Vector r Component = 1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = 600 [C]
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: R1
+&replace     BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 1
+          Unit Vector r Component = 1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = 0.00966788, -0.202042, 0.671871, 0.71254
+    
+  END
+
+END
+
+> update
+MESH TRANSFORMATION:
+Angle End = 0 , 0 , 0 
+Angle Start = 0 , 0 , 0 
+Delete Original = Off
+Glue Copied = On
+Glue Reflected = On
+Glue Strategy = Location And Transformed Only
+Nonuniform Scale = 1 , 1 , 1 
+Normal = 0 , 0 , 0 
+Number of Copies = 1
+Option = Reflection
+Passages in 360 = 1
+Passages per Mesh = 1
+Passages to Model = 1
+Point = 0 , 0 , 0 
+Point 1 = 0 , 0 , 0 
+Point 2 = 0 , 0 , 0 
+Point 3 = 0 , 0 , 0 
+Preserve Assembly Name Strategy = Existing
+Principal Axis = Z
+Reflection Method = Original (No Copy)
+Reflection Option = XZ Plane
+Rotation Angle = 0.0 [degree]
+Rotation Angle Option = Specified
+Rotation Axis Begin = 0 , 0 , 0 
+Rotation Axis End = 0 , 0 , 0 
+Rotation Option = Principal Axis
+Scale Method = Original (No Copy)
+Scale Option = Uniform
+Scale Origin = 0 , 0 , 0 
+Target Location = Passage Main
+Theta Offset = 0.0 [degree]
+Transform Targets Independently = Off
+Translation Deltas = 0 , 0 , 0 
+Translation Option = Deltas
+Translation Root = 0 , 0 , 0 
+Translation Tip = 0 , 0 , 0 
+Uniform Scale = 1.0
+Use Coord Frame = Off
+Use Multiple Copy = Off
+X Pos = 0.0
+Y Pos = 0.0
+Z Pos = 0.0
+END
+> update
+>gtmTransform Passage Main""")
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = -0.0776412, -0.127441, 0.637092, 0.756232
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+  DOMAIN: R1
+&replace     BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: R1
+&replace     BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = BLADE
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Blade
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = HUB
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Hub
+    BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+    BOUNDARY: R1 Outlet
+      Boundary Type = OUTLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        MASS AND MOMENTUM: 
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 1 [bar]
+        END # MASS AND MOMENTUM:
+        PRESSURE AVERAGING: 
+          Option = Average Over Whole Outlet
+        END # PRESSURE AVERAGING:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Outlet
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = SHROUD
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+          WALL VELOCITY: 
+            Option = Counter Rotating Wall
+          END # WALL VELOCITY:
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Shroud
+    BOUNDARY: R1 to R1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER1
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 1
+    BOUNDARY: R1 to R1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER2
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 2
+    DOMAIN MODELS: 
+      BUOYANCY MODEL: 
+        Option = Non Buoyant
+      END # BUOYANCY MODEL:
+      DOMAIN MOTION: 
+        Alternate Rotation Model = true
+        Angular Velocity = omega
+        Option = Rotating
+        AXIS DEFINITION: 
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.3
+        END # AXIS DEFINITION:
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+      REFERENCE PRESSURE: 
+        Reference Pressure = 0 [atm]
+      END # REFERENCE PRESSURE:
+    END # DOMAIN MODELS:
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Fluid
+      END # MORPHOLOGY:
+    END # FLUID DEFINITION:Air Ideal Gas
+    FLUID MODELS: 
+      COMBUSTION MODEL: 
+        Option = None
+      END # COMBUSTION MODEL:
+      HEAT TRANSFER MODEL: 
+        Include Viscous Work Term = True
+        Option = Total Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+      TURBULENCE MODEL: 
+        Option = SST
+      END # TURBULENCE MODEL:
+      TURBULENT WALL FUNCTIONS: 
+        High Speed Model = Off
+        Option = Automatic
+      END # TURBULENT WALL FUNCTIONS:
+    END # FLUID MODELS:
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = BLADE
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Blade
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = HUB
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Hub
+    BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+    BOUNDARY: R1 Outlet
+      Boundary Type = OUTLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        MASS AND MOMENTUM: 
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 1 [bar]
+        END # MASS AND MOMENTUM:
+        PRESSURE AVERAGING: 
+          Option = Average Over Whole Outlet
+        END # PRESSURE AVERAGING:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Outlet
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = SHROUD
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+          WALL VELOCITY: 
+            Option = Counter Rotating Wall
+          END # WALL VELOCITY:
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Shroud
+    BOUNDARY: R1 to R1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER1
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 1
+    BOUNDARY: R1 to R1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER2
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 2
+    DOMAIN MODELS: 
+      BUOYANCY MODEL: 
+        Option = Non Buoyant
+      END # BUOYANCY MODEL:
+      DOMAIN MOTION: 
+        Alternate Rotation Model = true
+        Angular Velocity = omega
+        Option = Rotating
+        AXIS DEFINITION: 
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.3
+        END # AXIS DEFINITION:
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+      REFERENCE PRESSURE: 
+        Reference Pressure = 0 [atm]
+      END # REFERENCE PRESSURE:
+    END # DOMAIN MODELS:
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Fluid
+      END # MORPHOLOGY:
+    END # FLUID DEFINITION:Air Ideal Gas
+    FLUID MODELS: 
+      COMBUSTION MODEL: 
+        Option = None
+      END # COMBUSTION MODEL:
+      HEAT TRANSFER MODEL: 
+        Include Viscous Work Term = True
+        Option = Total Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+      TURBULENCE MODEL: 
+        Option = SST
+      END # TURBULENCE MODEL:
+      TURBULENT WALL FUNCTIONS: 
+        High Speed Model = Off
+        Option = Automatic
+      END # TURBULENT WALL FUNCTIONS:
+    END # FLUID MODELS:
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+PR=massFlowAve(Total Pressure in Stn Frame)@R1 Inlet
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+P3t=massFlowAve(Total Pressure in Stn Frame)@R1 Inlet
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+P4s=massFlowAve(Pressure)@R1 Outlet
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+T3t=massFlowAve(Total Temperature in Stn Frame)@R1 Inlet
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+T4s=massFlowAve(Temperature)@R1 Outlet
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+TFP=Massflowin * T3t**0.5 / P3t
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+TFP=Massflowin * T3t^0.5 / P3t
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+Massflowin=massFlow()@R1 Inlet
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+etats=(1-T4s/T3t)/( 1 - (P4s/P3t)^(0.33/1.33) )
+END
+END
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Total
+        Efficiency Type = Both Compression and Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Total
+        Efficiency Type = Both Compression and Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP Etats
+        Coord Frame = Coord 0
+        Expression Value = etats
+        Option = Expression
+      END # MONITOR POINT:MP Etats
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Total
+        Efficiency Type = Both Compression and Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP Etats
+        Coord Frame = Coord 0
+        Expression Value = etats
+        Option = Expression
+      END # MONITOR POINT:MP Etats
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR POINT: MP TFP
+        Coord Frame = Coord 0
+        Expression Value = TFP
+        Option = Expression
+      END # MONITOR POINT:MP TFP
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Static
+        Efficiency Type = Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP Etats
+        Coord Frame = Coord 0
+        Expression Value = etats
+        Option = Expression
+      END # MONITOR POINT:MP Etats
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR POINT: MP TFP
+        Coord Frame = Coord 0
+        Expression Value = TFP
+        Option = Expression
+      END # MONITOR POINT:MP TFP
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Static
+        Efficiency Type = Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP Etats
+        Coord Frame = Coord 0
+        Expression Value = etats
+        Option = Expression
+      END # MONITOR POINT:MP Etats
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR POINT: MP TFP
+        Coord Frame = Coord 0
+        Expression Value = TFP
+        Option = Expression
+      END # MONITOR POINT:MP TFP
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Static
+        Efficiency Type = Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP Etats
+        Coord Frame = Coord 0
+        Expression Value = etats
+        Option = Expression
+      END # MONITOR POINT:MP Etats
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR POINT: MP TFP
+        Coord Frame = Coord 0
+        Expression Value = TFP
+        Option = Expression
+      END # MONITOR POINT:MP TFP
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      EFFICIENCY OUTPUT: 
+        Efficiency Calculation Method = Total to Static
+        Efficiency Type = Expansion
+        Inflow Boundary = R1 Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = R1 Outlet
+      END # EFFICIENCY OUTPUT:
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: MP Etats
+        Coord Frame = Coord 0
+        Expression Value = etats
+        Option = Expression
+      END # MONITOR POINT:MP Etats
+      MONITOR POINT: MP PR
+        Coord Frame = Coord 0
+        Expression Value = PR
+        Option = Expression
+      END # MONITOR POINT:MP PR
+      MONITOR POINT: MP TFP
+        Coord Frame = Coord 0
+        Expression Value = TFP
+        Option = Expression
+      END # MONITOR POINT:MP TFP
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   SOLVER CONTROL: 
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME: 
+      Option = High Resolution
+    END # ADVECTION SCHEME:
+    CONVERGENCE CONTROL: 
+      Length Scale Option = Conservative
+      Maximum Number of Iterations = 200
+      Minimum Number of Iterations = 1
+      Timescale Control = Auto Timescale
+      Timescale Factor = 1.0
+    END # CONVERGENCE CONTROL:
+    CONVERGENCE CRITERIA: 
+      Residual Target = 1.E-4
+      Residual Type = RMS
+    END # CONVERGENCE CRITERIA:
+    DYNAMIC MODEL CONTROL: 
+      Global Dynamic Model Control = On
+    END # DYNAMIC MODEL CONTROL:
+    INTERRUPT CONTROL: 
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS: 
+        Option = Default Conditions
+      END # CONVERGENCE CONDITIONS:
+    END # INTERRUPT CONTROL:
+  END # SOLVER CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   SOLVER CONTROL: 
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME: 
+      Option = High Resolution
+    END # ADVECTION SCHEME:
+    CONVERGENCE CONTROL: 
+      Length Scale Option = Conservative
+      Maximum Number of Iterations = 200
+      Minimum Number of Iterations = 1
+      Timescale Control = Auto Timescale
+      Timescale Factor = 1.0
+    END # CONVERGENCE CONTROL:
+    CONVERGENCE CRITERIA: 
+      Residual Target = 1.E-4
+      Residual Type = RMS
+    END # CONVERGENCE CRITERIA:
+    DYNAMIC MODEL CONTROL: 
+      Global Dynamic Model Control = On
+    END # DYNAMIC MODEL CONTROL:
+    INTERRUPT CONTROL: 
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS: 
+        Option = Default Conditions
+      END # CONVERGENCE CONDITIONS:
+    END # INTERRUPT CONTROL:
+  END # SOLVER CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = BLADE
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Blade
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = HUB
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Hub
+    BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+    BOUNDARY: R1 Outlet
+      Boundary Type = OUTLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        MASS AND MOMENTUM: 
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 1 [bar]
+        END # MASS AND MOMENTUM:
+        PRESSURE AVERAGING: 
+          Option = Average Over Whole Outlet
+        END # PRESSURE AVERAGING:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Outlet
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = SHROUD
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+          WALL VELOCITY: 
+            Option = Counter Rotating Wall
+          END # WALL VELOCITY:
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Shroud
+    BOUNDARY: R1 to R1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER1
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 1
+    BOUNDARY: R1 to R1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER2
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 2
+    DOMAIN MODELS: 
+      BUOYANCY MODEL: 
+        Option = Non Buoyant
+      END # BUOYANCY MODEL:
+      DOMAIN MOTION: 
+        Alternate Rotation Model = true
+        Angular Velocity = omega
+        Option = Rotating
+        AXIS DEFINITION: 
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.3
+        END # AXIS DEFINITION:
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+      REFERENCE PRESSURE: 
+        Reference Pressure = 0 [atm]
+      END # REFERENCE PRESSURE:
+    END # DOMAIN MODELS:
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Fluid
+      END # MORPHOLOGY:
+    END # FLUID DEFINITION:Air Ideal Gas
+    FLUID MODELS: 
+      COMBUSTION MODEL: 
+        Option = None
+      END # COMBUSTION MODEL:
+      HEAT TRANSFER MODEL: 
+        Include Viscous Work Term = True
+        Option = Total Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+      TURBULENCE MODEL: 
+        Option = SST
+      END # TURBULENCE MODEL:
+      TURBULENT WALL FUNCTIONS: 
+        High Speed Model = Off
+        Option = Automatic
+      END # TURBULENT WALL FUNCTIONS:
+    END # FLUID MODELS:
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0354548, -0.00457452, 0.029997
+    Scale = 21.6044
+    Pan = 0, 0
+    Rotation Quaternion = -0.361193, -0.496206, 0.448941, 0.649474
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = BLADE
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Blade
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = HUB
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Hub
+    BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+    BOUNDARY: R1 Outlet
+      Boundary Type = OUTLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        MASS AND MOMENTUM: 
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 1 [bar]
+        END # MASS AND MOMENTUM:
+        PRESSURE AVERAGING: 
+          Option = Average Over Whole Outlet
+        END # PRESSURE AVERAGING:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Outlet
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = SHROUD
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+          WALL VELOCITY: 
+            Option = Counter Rotating Wall
+          END # WALL VELOCITY:
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Shroud
+    BOUNDARY: R1 to R1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER1
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 1
+    BOUNDARY: R1 to R1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER2
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 2
+    DOMAIN MODELS: 
+      BUOYANCY MODEL: 
+        Option = Non Buoyant
+      END # BUOYANCY MODEL:
+      DOMAIN MOTION: 
+        Alternate Rotation Model = true
+        Angular Velocity = omega
+        Option = Rotating
+        AXIS DEFINITION: 
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.3
+        END # AXIS DEFINITION:
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+      REFERENCE PRESSURE: 
+        Reference Pressure = 0 [atm]
+      END # REFERENCE PRESSURE:
+    END # DOMAIN MODELS:
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Fluid
+      END # MORPHOLOGY:
+    END # FLUID DEFINITION:Air Ideal Gas
+    FLUID MODELS: 
+      COMBUSTION MODEL: 
+        Option = None
+      END # COMBUSTION MODEL:
+      HEAT TRANSFER MODEL: 
+        Include Viscous Work Term = True
+        Option = Total Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+      TURBULENCE MODEL: 
+        Option = SST
+      END # TURBULENCE MODEL:
+      TURBULENT WALL FUNCTIONS: 
+        High Speed Model = Off
+        Option = Automatic
+      END # TURBULENT WALL FUNCTIONS:
+    END # FLUID MODELS:
+    INITIALISATION: 
+      Frame Type = Stationary
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        Velocity Type = Cylindrical
+        CYLINDRICAL VELOCITY COMPONENTS: 
+          Option = Automatic with Value
+          Velocity Axial Component = 0 [m s^-1]
+          Velocity Theta Component = 50 [m s^-1]
+          Velocity r Component = -50 [m s^-1]
+        END # CYLINDRICAL VELOCITY COMPONENTS:
+        STATIC PRESSURE: 
+          Option = Automatic
+        END # STATIC PRESSURE:
+        TEMPERATURE: 
+          Option = Automatic
+        END # TEMPERATURE:
+        TURBULENCE INITIAL CONDITIONS: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE INITIAL CONDITIONS:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    Number of Passages in 360 = 11
+    Number of Passages in Component = 1
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = BLADE
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Blade
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = HUB
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Hub
+    BOUNDARY: R1 Inlet
+      Boundary Type = INLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = INFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Cylindrical Components
+          Unit Vector Axial Component = 0
+          Unit Vector Theta Component = 4
+          Unit Vector r Component = -1
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Stationary Frame Total Temperature
+          Stationary Frame Total Temperature = BCT3t
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Stationary Frame Total Pressure
+          Relative Pressure = BCPtin
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Inlet
+    BOUNDARY: R1 Outlet
+      Boundary Type = OUTLET
+      Frame Type = Stationary
+      Interface Boundary = Off
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS: 
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        MASS AND MOMENTUM: 
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 1 [bar]
+        END # MASS AND MOMENTUM:
+        PRESSURE AVERAGING: 
+          Option = Average Over Whole Outlet
+        END # PRESSURE AVERAGING:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Outlet
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Create Other Side = Off
+      Frame Type = Rotating
+      Interface Boundary = Off
+      Location = SHROUD
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Adiabatic
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = No Slip Wall
+          WALL VELOCITY: 
+            Option = Counter Rotating Wall
+          END # WALL VELOCITY:
+        END # MASS AND MOMENTUM:
+        WALL ROUGHNESS: 
+          Option = Smooth Wall
+        END # WALL ROUGHNESS:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 Shroud
+    BOUNDARY: R1 to R1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER1
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 1
+    BOUNDARY: R1 to R1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Interface Boundary = On
+      Location = PER2
+      BOUNDARY CONDITIONS: 
+        HEAT TRANSFER: 
+          Option = Conservative Interface Flux
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Option = Conservative Interface Flux
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Conservative Interface Flux
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:R1 to R1 Periodic 1 Side 2
+    DOMAIN MODELS: 
+      BUOYANCY MODEL: 
+        Option = Non Buoyant
+      END # BUOYANCY MODEL:
+      DOMAIN MOTION: 
+        Alternate Rotation Model = true
+        Angular Velocity = omega
+        Option = Rotating
+        AXIS DEFINITION: 
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.3
+        END # AXIS DEFINITION:
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+      REFERENCE PRESSURE: 
+        Reference Pressure = 0 [atm]
+      END # REFERENCE PRESSURE:
+    END # DOMAIN MODELS:
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Fluid
+      END # MORPHOLOGY:
+    END # FLUID DEFINITION:Air Ideal Gas
+    FLUID MODELS: 
+      COMBUSTION MODEL: 
+        Option = None
+      END # COMBUSTION MODEL:
+      HEAT TRANSFER MODEL: 
+        Include Viscous Work Term = True
+        Option = Total Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+      TURBULENCE MODEL: 
+        Option = SST
+      END # TURBULENCE MODEL:
+      TURBULENT WALL FUNCTIONS: 
+        High Speed Model = Off
+        Option = Automatic
+      END # TURBULENT WALL FUNCTIONS:
+    END # FLUID MODELS:
+    INITIALISATION: 
+      Frame Type = Stationary
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        Velocity Type = Cylindrical
+        CYLINDRICAL VELOCITY COMPONENTS: 
+          Option = Automatic with Value
+          Velocity Axial Component = 0 [m s^-1]
+          Velocity Theta Component = 50 [m s^-1]
+          Velocity r Component = -50 [m s^-1]
+        END # CYLINDRICAL VELOCITY COMPONENTS:
+        STATIC PRESSURE: 
+          Option = Automatic
+        END # STATIC PRESSURE:
+        TEMPERATURE: 
+          Option = Automatic
+        END # TEMPERATURE:
+        TURBULENCE INITIAL CONDITIONS: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE INITIAL CONDITIONS:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+  END # DOMAIN:R1
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup2.Exit()
+Save(Overwrite=True)
+solution1 = system4.GetContainer(ComponentName="Solution")
+solution1.SetExecutionControl(CCL=r"""&replace SIMULATION CONTROL:
+  EXECUTION CONTROL:
+    EXECUTABLE SELECTION:
+      Double Precision = Off
+      Large Problem = Off
+    END
+    INTERPOLATOR STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+    END
+    PARTITIONER STEP CONTROL:
+      Multidomain Option = Automatic
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARTITION SMOOTHING:
+        Maximum Partition Smoothing Sweeps = 100
+        Option = Smooth
+      END
+      PARTITIONING TYPE:
+        MeTiS Type = k-way
+        Option = MeTiS
+        Partition Size Rule = Automatic
+      END
+    END
+    RUN DEFINITION:
+      Run Mode = Full
+      Solver Input File = \\wsl.localhost\Ubuntu-22.04\root\LearnOpenFOAM\BasicOpenFOAMProgrammingTutorials\OFtutorialTest04_MRF\turbine\mesh\wheel_files\dp0\CFX\CFX\CFX.def
+    END
+    SOLVER STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARALLEL ENVIRONMENT:
+        Number of Processes = 6
+        Start Method = Intel MPI Local Parallel
+      END
+    END
+  END
+END
+""")
+solution1.Exit()
+results1 = system4.GetContainer(ComponentName="Results")
+results1.Edit()
+Update()
+results1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+EXPRESSION EVALUATOR:
+  Evaluated Expression = PR
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      PR = P3t/P4s
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = PR
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(0.33/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(-0.33/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(0.33/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(1.33/.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(1.33/-.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(1.33/-0.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(1.33/0.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(-1.33/0.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(1.33/0.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^(0.33/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P4s/P3t)^((1-1.33)/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4s/T3t)/( 1 - (P3t/P4s)^((1-1.33)/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4t/T3t)/( 1 - (P3t/P4s)^((1-1.33)/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4t/T3t)/( 1 - (P3t/P4s)^((1-1.33)/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = T4s
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      T4t = massFlowAve(Total Temperature in Stn Frame)@R1 Outlet
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = T4t
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4t/T3t)/( 1 - (P3t/P4s)^((1-1.33)/1.33) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4t/T3t)/( 1 - (P3t/P4s)^((1-1.4)/1.4) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: etats
+    Method = Expression
+    Expression Name = etats
+  END
+END""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: TFP
+    Method = Expression
+    Expression Name = TFP
+  END
+END""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: PR
+    Method = Expression
+    Expression Name = PR
+  END
+END""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = PR
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = Massflowin
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      Massflowin = massFlow()@R1 Inlet*11
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = Massflowin
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      TFP = Massflowin * T3t^0.5 / P3t*1000
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      TFP = Massflowin * T3t^0.5 / P3t*100000
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.Exit()
+designPoint1 = Parameters.GetDesignPoint(Name="0")
+parameter1 = Parameters.GetParameter(Name="P1")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.2 [Pa]")
+designPoint2 = Parameters.CreateDesignPoint()
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.4 [Pa]")
+designPoint3 = Parameters.CreateDesignPoint()
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.6 [Pa]")
+designPoint4 = Parameters.CreateDesignPoint()
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.8 [Pa]")
+designPoint5 = Parameters.CreateDesignPoint()
+designPoint5.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2 [Pa]")
+designPoint6 = Parameters.CreateDesignPoint()
+designPoint6.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2.2 [Pa]")
+Refresh()
+Refresh()
+Update()
+solution1.DisplayMonitors()
+solution1.Exit()
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint3, designPoint4, designPoint5, designPoint6])
+solution1.DisplayMonitors()
+solution1.Exit()
+parameter1.SetQuantityUnit(Unit="bar")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.2 [bar]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.4 [bar]")
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.6 [bar]")
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.8 [bar]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2 [bar]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2.2 [bar]")
+parameter2 = Parameters.GetParameter(Name="P2")
+parameter2.SetQuantityUnit(Unit="bar")
+backgroundSession2 = UpdateAllDesignPoints(DesignPoints=[designPoint1, designPoint2, designPoint3, designPoint4, designPoint5, designPoint6])
+solution1.DisplayMonitors()
+solution1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4t/T3t)/( 1 - (P4s/P3t)^((1-1.4)/1.4) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      etats = (1-T4t/T3t)/( 1 - (PR)^((1-1.4)/1.4) )
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = etats
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = PR
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      PR = P3t / P4s
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = PR
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      TFP = Massflowin * T3t^0.5 / P3t*100000
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      TFP = Massflowin * T3t^0.5 / P3t*100000
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = TFP
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+Save(Overwrite=True)
+results1.Exit()
+setup2.Edit()
+setup2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.0372715, 0.00496088, 0.033171
+    Scale = 24.4644
+    Pan = 0, 0
+    Rotation Quaternion = -0.361193, -0.496206, 0.448941, 0.649474
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+> update
+LIBRARY:
+CEL:
+EXPRESSIONS:
+PR=P3t/P4s
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+TFP=Massflowin * T3t^0.5 / P3t*100000
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+etats=(1-T4t/T3t)/( 1 - (P4s/P3t)^(0.33/1.33) )
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+etats=(1-T4t/T3t)/( 1 - (PR)^((1-1.4)/1.4) )
+END
+END
+END""")
+setup2.SendCommand(Command="""LIBRARY:
+CEL:
+EXPRESSIONS:
+T4t=massFlowAve(Total Temperature in Stn Frame)@R1 Outlet
+END
+END
+END""")
+Save(Overwrite=True)
+setup2.Exit()
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.4 [bar]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1.6 [bar]")
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1 [bar]")
+designPoint3.Delete()
+designPoint7 = Parameters.CreateDesignPoint()
+designPoint7.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2.4 [bar]")
+designPoint5.Retained = True
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint1, designPoint2, designPoint4, designPoint5, designPoint6, designPoint7])
+chart1 = Parameters.CreateParameterVsParameterChart()
+chart2 = Parameters.CreateParameterSummaryChart(Parameters=[])
+chart3 = Parameters.CreateParameterVsParameterChart()
+chart3.Delete()
+chart1.IsBaseDesignPointExcluded = True
+chart1.IsBaseDesignPointExcluded = False
+parameter3 = Parameters.GetParameter(Name="P5")
+chart1.XAxisBottom = parameter3
+chart1.XAxisBottom = chart1
+parameter4 = Parameters.GetParameter(Name="P7")
+chart1.XAxisBottom = parameter4
+chart1.XAxisTop = parameter4
+chart1.YAxisLeft = parameter3
+parameter5 = Parameters.GetParameter(Name="P6")
+chart1.YAxisRight = parameter5
+designPoint8 = Parameters.CreateDesignPoint()
+designPoint8.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2.6 [bar]")
+designPoint9 = Parameters.CreateDesignPoint()
+designPoint9.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2.8 [bar]")
+designPoint10 = Parameters.CreateDesignPoint()
+designPoint10.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="3.4 [bar]")
+backgroundSession4 = UpdateAllDesignPoints(DesignPoints=[designPoint8, designPoint9, designPoint10])
+axis1 = Graphics.GetAxisContinuous(Name="Param Vs Param Continuous X Axis")
+axis1.RangeMin = 1.462
+axis1.RangeMax = 2.62244
+axis2 = Graphics.GetAxisContinuous(Name="Param Vs Param Continuous X Axis Secondary")
+axis2.RangeMin = 1.462
+axis2.RangeMax = 2.62244
+axis3 = Graphics.GetAxisContinuous(Name="Param Vs Param Y Axis Secondary")
+axis3.RangeMin = -0.0154826
+axis3.RangeMax = 0.359927
+variable1 = Graphics.GetVariable(Name="Param Summary_10_P7")
+variable1.BoundsMax = 2.7
+axis1.RangeMin = 1.458
+axis1.RangeMax = 2.82646
+axis2.RangeMin = 1.458
+axis2.RangeMax = 2.82646
+axis3.RangeMin = -0.0157668
+axis3.RangeMax = 0.365894
+solution1.DisplayMonitors()
+solution1.Exit()
+axis1.RangeMin = 1.44646
+axis1.RangeMax = 3.41494
+axis2.RangeMin = 1.44646
+axis2.RangeMax = 3.41494
+Save(Overwrite=True)
+template5 = GetTemplate(TemplateName="ICEMCFD")
+componentTemplate4 = GetComponentTemplate(Name="ICEMCFD")
+system5 = template5.CreateSystem(
+    DataTransferFrom=[Set(FromComponent=turboMeshComponent1, TransferName=None, ToComponentTemplate=componentTemplate4)],
+    RelativeTo=system2)
+setup2.Edit()
+setup2.Exit()
+iCM1 = system5.GetContainer(ComponentName="ICM")
+iCM1.Open()
+ICEMCFD.Refresh(Container=iCM1)
+Save(Overwrite=True)

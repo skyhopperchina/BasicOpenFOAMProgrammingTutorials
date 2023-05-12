@@ -1,0 +1,30 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by ANSYS Workbench.
+# Project name: wheel
+# Creation date: 05/11/2023 22:38:44
+# 
+# 05/11/2023 22:38:44
+# The parameters defined in the project are:
+# ,P1 - BCPtin [bar],P2 - BCP4 [bar],P3 - BCu5 [m s^-1],P4 - BCT3t [K],P5 - etats,P6 - TFP,P7 - PR [Pa]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2,P3,P4,P5,P6,P7
+DP 0,1.2,1,420,873.15,,,0
+DP 1,1.4,1,420,873.15,1,1.58146E-08,138198
+DP 2,1.6,1,420,873.15,0.885192,5.97558E-07,160021
+DP 3,1.8,1,420,873.15,1.09431,2.49186E-06,179989
+DP 4,2,1,420,873.15,1.08434,3.06636E-06,199954
+DP 5,2.2,1,420,873.15,1.07495,3.2301E-06,219968
+# 
+# A non parametric change occurred and invalidated design point results.
+# 05/11/2023 22:46:37
+# 
+DP 0,1.4,1,420,873.15,,0.00158145,
+DP 1,1.6,1,420,873.15,0.240153,0.0293576,1.48432
+DP 3,1.8,1,420,873.15,0.829795,0.248063,1.79292
+DP 4,2,1,420,873.15,0.875072,0.306527,1.99896
+DP 5,2.2,1,420,873.15,0.880776,0.323568,2.19974
+DP 6,2.4,1,420,873.15,0.876375,0.334865,2.4001
+DP 7,2.6,1,420,873.15,0.869171,0.342863,2.60012
+DP 8,2.8,1,420,873.15,0.860136,0.348546,2.80014
+DP 9,3.4,1,420,873.15,0.73734,0.126227,3.37708

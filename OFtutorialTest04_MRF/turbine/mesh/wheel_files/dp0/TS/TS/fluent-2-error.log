@@ -1,0 +1,42 @@
+Node 2 Fatal signal raised sig = Segmentation fault
+ 25b89db0 CX_Primitive_Error
+ 37fa4ef0 exp2f
+ 25cad070 AF_Get_Node_Id
+ 276aef20 _C_specific_handler
+ 3a2a89c0 _chkstk
+ 3a2352f0 RtlRestoreContext
+ 3a2a7ad0 KiUserExceptionDispatcher
+ 244598b0 Fill_Cell_Faces
+ 246896b0 Reorder_F
+ 23809860 Build_Grid
+ 235f1710 ResetMixedInteriorThreadType
+ 25c189a0 eval
+ 236f4060 PRF_Command_Start
+ 236f6960 PRF_Node_repl
+ 236f7210 init_rsubrs
+ 25cad070 AF_Get_Node_Id
+ 393c5580 BaseThreadInitThunk
+ 3a204830 RtlUserThreadStart
+
+Error [node 2] [time 5/11/23 22:0:2] Abnormal Exit!
+Node 2 Fatal signal raised sig = Segmentation fault
+ 25b89db0 CX_Primitive_Error
+ 37fa4ef0 exp2f
+ 25cad070 AF_Get_Node_Id
+ 276aef20 _C_specific_handler
+ 3a2a89c0 _chkstk
+ 3a2352f0 RtlRestoreContext
+ 3a2a7ad0 KiUserExceptionDispatcher
+ 244598b0 Fill_Cell_Faces
+ 246896b0 Reorder_F
+ 23809860 Build_Grid
+ 235f1710 ResetMixedInteriorThreadType
+ 25c189a0 eval
+ 236f4060 PRF_Command_Start
+ 236f6960 PRF_Node_repl
+ 236f7210 init_rsubrs
+ 25cad070 AF_Get_Node_Id
+ 393c5580 BaseThreadInitThunk
+ 3a204830 RtlUserThreadStart
+
+Error [node 2] [time 5/11/23 22:0:44] Abnormal Exit!

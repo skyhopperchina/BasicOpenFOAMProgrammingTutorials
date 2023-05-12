@@ -1,0 +1,61 @@
+# Written by ICEM CFD 20.2, user Shawn, Thu May 11 11:32:29 PM Malay Peninsula Standard Time 2023
+
+begin family PASSAGE_MAIN
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family PASSAGE_MAIN
+
+begin family HUB
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family HUB
+
+begin family SHROUD
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family SHROUD
+
+begin family INFLOW
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family INFLOW
+
+begin family OUTFLOW
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family OUTFLOW
+
+begin family BLADE
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family BLADE
+
+begin family PER1
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family PER1
+
+begin family PER2
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family PER2
+
+begin family BLD_LOW
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family BLD_LOW
+
+begin family BLD_GEO_LOW
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family BLD_GEO_LOW
+
+begin family BLD_GEO_HIGH
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family BLD_GEO_HIGH
+
+begin family BLD_HIGH
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family BLD_HIGH
