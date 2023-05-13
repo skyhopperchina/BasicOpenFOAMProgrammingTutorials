@@ -1,0 +1,15 @@
+# family_boco file written by ICEM CFD by Shawn on Thu May 11 11:32:29 PM Malay Peninsula Standard Time 2023
+## solver ANSYS Fluent
+"PASSAGE_MAIN"
+"HUB"
+"SHROUD"
+"INFLOW"
+"OUTFLOW"
+"BLADE"
+"PER1"
+"PER2"
+"BLD_LOW"
+"BLD_GEO_LOW"
+"BLD_GEO_HIGH"
+"BLD_HIGH"
+
