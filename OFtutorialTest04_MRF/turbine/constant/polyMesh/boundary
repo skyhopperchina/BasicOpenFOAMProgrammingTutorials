@@ -55,7 +55,7 @@ FoamFile
     {
         type            cyclic;
         neighbourPatch  PER2;
-        transform       rotational; #unspecified,none,rotational,translational
+        transform       rotational;
         nFaces          2304;
         startFace       154522;
     }
