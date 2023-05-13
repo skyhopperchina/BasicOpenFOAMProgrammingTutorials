@@ -20,25 +20,44 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
+    INFLOW
+    {
+        type            fixedValue;
+        value           uniform (0 -5 0);
+    }
+    OUTFLOW
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (0 0 0);
+    }
+    
     BLADE
     {
         type            noSlip;
     }
 
-    stator
+    HUB
     {
         type            noSlip;
     }
-
-    front
+    
+    SHROUD
     {
-        type            empty;
+        type            noSlip;
     }
-
-    back
+    
+    PER1
     {
-        type            empty;
+        type            cyclic;
     }
+    
+    PER2
+    {
+        type            cyclic;
+    }
+    
+
 }
 
 

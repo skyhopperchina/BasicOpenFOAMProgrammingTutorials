@@ -53,13 +53,17 @@ FoamFile
     }
     PER1
     {
-        type            patch;
+        type            cyclic;
+        neighbourPatch  PER2;
+        transform       rotational; #unspecified,none,rotational,translational
         nFaces          2304;
         startFace       154522;
     }
     PER2
     {
-        type            patch;
+        type            cyclic;
+        neighbourPatch  PER1;
+        transform       rotational;
         nFaces          2304;
         startFace       156826;
     }
