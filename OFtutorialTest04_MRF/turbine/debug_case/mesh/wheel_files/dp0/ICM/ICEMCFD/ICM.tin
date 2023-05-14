@@ -1,0 +1,24 @@
+// tetin file version 1.1
+// written by ICEM CFD - version 20.2 on Sun May 14 16:19:27 2023
+
+set_triangulation_tolerance 0.001
+# In ICEM CFD 4.2 the family_boco file is no longer tied to tetin
+# read_family_boco family_boco
+define_family PASSAGE_MAIN color 9778145
+define_family HUB color 9384933
+define_family SHROUD color 5766195
+define_family INFLOW color 3384789
+define_family OUTFLOW color 7598899
+define_family BLADE color 3374574
+define_family PER1 color 16343603
+define_family PER2 color 10998835
+define_family GEOM color 16663866
+
+prescribed_point 0.0488688 -0.0089665 0.0128411 family GEOM name pnt.00
+prescribed_point 0.044798 0.0183865 0.012841 family GEOM name pnt.01
+affix 0
+# the periodic angle is 360/11 = 32.727272033691
+periodic 0 0 0 0 0 1  per_n=11 0 0 0
+define_model 1e+10 reference_size 1
+define_prism_meshing_parameters law 0 nlay 3 hratio 1.2 min_quality 0.01 fillet 0.1 tetra_smooth_limit 0.3
+return

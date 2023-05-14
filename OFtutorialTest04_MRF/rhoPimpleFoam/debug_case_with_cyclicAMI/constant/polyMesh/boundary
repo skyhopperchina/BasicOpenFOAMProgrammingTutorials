@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2212                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+7
+(
+    HUB
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1414;
+        startFace       146294;
+    }
+    SHROUD
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1414;
+        startFace       147708;
+    }
+    INFLOW
+    {
+        type            patch;
+        nFaces          1368;
+        startFace       149122;
+    }
+    OUTFLOW
+    {
+        type            patch;
+        nFaces          396;
+        startFace       150490;
+    }
+    BLADE
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          3636;
+        startFace       150886;
+    }
+    PER1
+    {
+        type            cyclicAMI;
+        neighbourPatch  PER2;
+        transform       rotational;
+        nFaces          2304;
+        startFace       154522;
+        rotationAxis    (0 0 1);
+        rotationCentre  (0 0 0);
+    }
+    PER2
+    {
+        type            cyclicAMI;
+        neighbourPatch  PER1;
+        transform       rotational;
+        nFaces          2304;
+        startFace       156826;
+        rotationAxis    (0 0 1);
+        rotationCentre  (0 0 0);
+    }
+)
+
+// ************************************************************************* //

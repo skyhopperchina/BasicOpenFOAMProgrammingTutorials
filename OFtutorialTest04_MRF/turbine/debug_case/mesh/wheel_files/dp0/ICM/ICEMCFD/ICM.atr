@@ -1,0 +1,78 @@
+# Written by ICEM CFD 20.2, user Shawn, Sun May 14 4:19:27 PM Malay Peninsula Standard Time 2023
+
+begin family PASSAGE_MAIN
+    begin solver "ANSYS Fluent"
+    end solver "ANSYS Fluent"
+end family PASSAGE_MAIN
+
+begin family HUB
+    begin solver "ANSYS Fluent"
+        begin bctype WALL
+            active 1
+            arg1 0 1
+        end bctype WALL
+    end solver "ANSYS Fluent"
+end family HUB
+
+begin family SHROUD
+    begin solver "ANSYS Fluent"
+        begin bctype WALL
+            active 1
+            arg1 0 1
+        end bctype WALL
+    end solver "ANSYS Fluent"
+end family SHROUD
+
+begin family INFLOW
+    begin solver "ANSYS Fluent"
+        begin bctype VELI
+            active 1
+            arg1 0 1
+        end bctype VELI
+    end solver "ANSYS Fluent"
+end family INFLOW
+
+begin family OUTFLOW
+    begin solver "ANSYS Fluent"
+        begin bctype PRESO
+            active 1
+            arg1 0 1
+        end bctype PRESO
+    end solver "ANSYS Fluent"
+end family OUTFLOW
+
+begin family BLADE
+    begin solver "ANSYS Fluent"
+        begin bctype WALL
+            active 1
+            arg1 0 1
+        end bctype WALL
+    end solver "ANSYS Fluent"
+end family BLADE
+
+begin family PER1
+    begin solver "ANSYS Fluent"
+        begin bctype PER
+            active 1
+            arg1 0 1
+        end bctype PER
+    end solver "ANSYS Fluent"
+end family PER1
+
+begin family PER2
+    begin solver "ANSYS Fluent"
+        begin bctype PER
+            active 1
+            arg1 0 1
+        end bctype PER
+    end solver "ANSYS Fluent"
+end family PER2
+
+begin family GEOM
+    begin solver "ANSYS Fluent"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "ANSYS Fluent"
+end family GEOM
