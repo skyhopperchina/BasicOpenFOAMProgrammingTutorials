@@ -29,9 +29,9 @@ deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   10;
+writeInterval   20;
 
-purgeWrite      3;
+purgeWrite      10;
 
 writeFormat     ascii;
 

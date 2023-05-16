@@ -10,21 +10,50 @@ FoamFile
     version     2.0;
     format      ascii;
     arch        "LSB;label=32;scalar=64";
-    class       dictionary;
-    location    "990/uniform";
-    object      time;
+    class       volVectorField;
+    location    "820";
+    object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-value           990;
+dimensions      [0 1 -1 0 0 0 0];
 
-name            "990";
+internalField   uniform (0 0 0);
 
-index           990;
-
-deltaT          1;
-
-deltaT0         1;
+boundaryField
+{
+    HUB
+    {
+        type            noSlip;
+    }
+    SHROUD
+    {
+        type            noSlip;
+    }
+    INFLOW
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    OUTFLOW
+    {
+        type            zeroGradient;
+    }
+    BLADE
+    {
+        type            noSlip;
+    }
+    PER1
+    {
+        type            cyclicAMI;
+        value           uniform (0 0 0);
+    }
+    PER2
+    {
+        type            cyclicAMI;
+        value           uniform (0 0 0);
+    }
+}
 
 
 // ************************************************************************* //
