@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2212                                 |
+|  \\    /   O peration     | Version:  v2206                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -14,41 +14,50 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include        "include/initialConditions"
+
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 1;
+internalField   uniform $turbulentKE;
 
 boundaryField
 {
+    
     INFLOW
     {
-        type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.05;
-        value           uniform 1;
+        // type            fixedValue;
+        // value           uniform (-10 0 0);
+		type            fixedValue;
+		value           $internalField;
     }
     OUTFLOW
     {
+        // type            inletOutlet;
+        // inletValue      uniform (0 0 0);
+        // value           uniform (0 0 0);
+		// type            zeroGradient;
+
         type            inletOutlet;
-        inletValue      uniform 1;
-        value           uniform 1;
+        inletValue      $internalField;
+        value           $internalField;		
     }
     
     BLADE
     {
         type            kqRWallFunction;
-        value           uniform 1;
+        value           $internalField;
     }
 
     HUB
     {
         type            kqRWallFunction;
-        value           uniform 1;
+        value           $internalField;
     }
     
     SHROUD
     {
         type            kqRWallFunction;
-        value           uniform 1;
+        value           $internalField;
     }
     
     PER1
@@ -60,6 +69,8 @@ boundaryField
     {
         type            cyclicAMI;
     }
+    
+    
 }
 
 

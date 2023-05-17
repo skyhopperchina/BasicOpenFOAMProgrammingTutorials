@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2212                                 |
+|  \\    /   O peration     | Version:  v2206                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -20,33 +20,35 @@ internalField   uniform 0;
 
 boundaryField
 {
+    
     INFLOW
     {
         type            calculated;
-        value           $internalField;
+        value           uniform 0;
     }
     OUTFLOW
     {
         type            calculated;
-        value           $internalField;
+        value           uniform 0;
+		
     }
     
     BLADE
     {
         type            compressible::alphatWallFunction;
-        value           $internalField;
+        value           uniform 0;
     }
 
     HUB
     {
         type            compressible::alphatWallFunction;
-        value           $internalField;
+        value           uniform 0;
     }
     
     SHROUD
     {
         type            compressible::alphatWallFunction;
-        value           $internalField;
+        value           uniform 0;
     }
     
     PER1

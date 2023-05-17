@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2212                                 |
+|  \\    /   O peration     | Version:  v2206                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -14,25 +14,34 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+Tinlet          298;
+
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 293;
+internalField   uniform $Tinlet;
 
 boundaryField
 {
+    
     INFLOW
     {
-        type            fixedValue;
-        value           uniform 300;
+        // type            fixedValue;
+        // value           uniform (-10 0 0);
+		type            fixedValue;
+		value           $internalField;
     }
-
     OUTFLOW
     {
-        type            inletOutlet;
-        inletValue      uniform 300;
-        value           uniform 300;
-    }
+        // type            inletOutlet;
+        // inletValue      uniform (0 0 0);
+        // value           uniform (0 0 0);
+		// type            zeroGradient;
 
+        type            inletOutlet;
+        inletValue      uniform $Tinlet;
+        value           $inletValue;		
+    }
+    
     BLADE
     {
         type            zeroGradient;
@@ -57,7 +66,7 @@ boundaryField
     {
         type            cyclicAMI;
     }
-    #includeEtc "caseDicts/setConstraintTypes"
+    
 }
 
 
