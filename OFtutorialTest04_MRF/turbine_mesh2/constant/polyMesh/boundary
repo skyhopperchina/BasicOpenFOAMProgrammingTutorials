@@ -1,0 +1,165 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2206                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+22
+(
+    diffout
+    {
+        type            patch;
+        nFaces          168;
+        startFace       245040;
+    }
+    diffwall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          439;
+        startFace       245208;
+    }
+    diffper1
+    {
+        type            patch;
+        nFaces          873;
+        startFace       245647;
+    }
+    diffper2
+    {
+        type            patch;
+        nFaces          882;
+        startFace       246520;
+    }
+    diffconectwheelout
+    {
+        type            patch;
+        nFaces          910;
+        startFace       247402;
+    }
+    diffnosewall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          198;
+        startFace       248312;
+    }
+    ininlet
+    {
+        type            patch;
+        nFaces          1486;
+        startFace       248510;
+    }
+    inper1
+    {
+        type            patch;
+        nFaces          324;
+        startFace       249996;
+    }
+    inper2
+    {
+        type            patch;
+        nFaces          332;
+        startFace       250320;
+    }
+    inconnectwheelinflow
+    {
+        type            patch;
+        nFaces          1190;
+        startFace       250652;
+    }
+    inwall1
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          552;
+        startFace       251842;
+    }
+    inwall2
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          540;
+        startFace       252394;
+    }
+    hub
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1477;
+        startFace       252934;
+    }
+    shroud
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1477;
+        startFace       254411;
+    }
+    inflow
+    {
+        type            patch;
+        nFaces          1548;
+        startFace       255888;
+    }
+    outflow
+    {
+        type            patch;
+        nFaces          540;
+        startFace       257436;
+    }
+    blade
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          432;
+        startFace       257976;
+    }
+    per1
+    {
+        type            patch;
+        nFaces          1980;
+        startFace       258408;
+    }
+    per2
+    {
+        type            patch;
+        nFaces          1980;
+        startFace       260388;
+    }
+    bld-geo-low
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1739;
+        startFace       262368;
+    }
+    bld-geo-high
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          313;
+        startFace       264107;
+    }
+    bld-high
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1764;
+        startFace       264420;
+    }
+)
+
+// ************************************************************************* //
